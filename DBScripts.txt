@@ -1,0 +1,17 @@
+CREATE TABLE `paper_details` (
+  `pd_id` int(16) NOT NULL AUTO_INCREMENT,
+  `pd_original_file_name` varchar(100) NOT NULL,
+  `pd_original_file_path` varchar(500) NOT NULL,
+  `pd_file_name` varchar(100) NOT NULL,
+  `pd_file_path` varchar(500) NOT NULL,
+  `pd_file_checksum` varchar(100) NOT NULL,
+  `pd_created_by` int(16) NOT NULL,
+  `pd_created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `pd_updated_by` int(16) NOT NULL,
+  `pd_updated_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`pd_id`),
+  UNIQUE KEY `pd_id_UNIQUE` (`pd_id`),
+  UNIQUE KEY `pd_original_file_name_UNIQUE` (`pd_original_file_name`),
+  UNIQUE KEY `pd_file_checksum_UNIQUE` (`pd_file_checksum`),
+  UNIQUE KEY `pd_updated_date_UNIQUE` (`pd_updated_date`)
+);

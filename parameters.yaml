@@ -1,0 +1,11 @@
+# parameters.yaml file
+
+file_size: 5000000
+
+allowed_formats :
+  - txt
+  - pdf
+  - png
+  - jpg
+  - jpeg
+  - docx
