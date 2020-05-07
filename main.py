@@ -1,7 +1,8 @@
 from app import app
 from flask import request, jsonify
-from service import upload_function
+from service import upload_function, download_function
 import json
+import os
 
 
 @app.route('/paperanalysis/uploadpaper', methods=['POST'])
@@ -29,6 +30,17 @@ def register_model():
             resp.status_code = 400
             return resp
         return resp
+
+
+@app.route('/paperanalysis/downloadpaper', methods=['POST'])
+def download_form_data():
+    jsondata = request.get_json(force=True)
+    message, code, data = download_function.download_papers(jsondata)
+    resp = jsonify({'code': code, 'data': data, 'message': message})
+    if code == 400:
+        resp.status_code = 400
+        return resp
+    return resp
 
 
 if __name__ == "__main__":
